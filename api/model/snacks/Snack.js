@@ -1,6 +1,6 @@
 const SnackTable = require('./SnackTable')
-const InvalidField = require('../../../erros/InvalidField')
-const DataNotProvided = require('../../../erros/DataNotProvided')
+const InvalidField = require('../../erros/InvalidField')
+const DataNotProvided = require('../../erros/DataNotProvided')
 
 class Snack {
     constructor({id, name, value, description, createAt, updateAt, version}){

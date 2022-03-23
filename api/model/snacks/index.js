@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const SnackTable = require('./SnackTable')
 const Snack = require('./Snack')
-const SerealizerSnack = require('../../../Serealizer').SerealizerSnack
-const NotFound = require('../../../erros/NotFound')
+const SerealizerSnack = require('../../Serealizer').SerealizerSnack
+const NotFound = require('../../erros/NotFound')
 
 router.options('/', (request, response) => {
     response.set('Access-Control-Allow-Methods', 'GET, POST')

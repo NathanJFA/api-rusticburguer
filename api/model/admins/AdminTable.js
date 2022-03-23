@@ -1,16 +1,16 @@
-const ModelSnack = require('./TableModelSnack')
-const NotFound = require('../../../erros/NotFound')
+const ModelAdmin = require('./TableModelAdmin')
+const NotFound = require('../../erros/NotFound')
 
 module.exports = {
     list () {
-        return ModelSnack.findAll({ raw: true }
+        return ModelAdmin.findAll({ raw: true }
         )
     },
-    insert(Snack){
-        return ModelSnack.create(Snack)
+    insert(admin){
+        return ModelAdmin.create(admin)
     },
     async findById(id){
-        const found = await ModelSnack.findOne({
+        const found = await ModelAdmin.findOne({
             where: {
                 id: id
             }
@@ -21,14 +21,14 @@ module.exports = {
         return found
     },
     async update(id, dataForUpdate){
-        return ModelSnack.update(dataForUpdate,{
+        return ModelAdmin.update(dataForUpdate,{
             where: {
                 id:id
             }
         })
     },
     async delete(id){
-        return ModelSnack.destroy({
+        return ModelAdmin.destroy({
             where: {
                 id: id
             }

@@ -1,7 +1,8 @@
 const models = [
-    require('../routers/model/clients/TableModelClient'),
-    require('../routers/model/clients/adresses/TableModelAddress'),
-    require('../routers/model/snacks/TableModelSnack')
+    require('../model/clients/TableModelClient'),
+    require('../model/adresses/TableModelAddress'),
+    require('../model/snacks/TableModelSnack'),
+    require('../model/pedidos/TableModelPedido')
 ]
 async function createTables(){
     for (let cont = 0; cont < models.length; cont++) {

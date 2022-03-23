@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const ClientTable = require('./model/clients/ClientTable')
+const ClientTable = require('../model/clients//ClientTable')
 const SerealizerClient = require('../Serealizer').SerealizerClient
 
 router.options('/', (request, response) => {

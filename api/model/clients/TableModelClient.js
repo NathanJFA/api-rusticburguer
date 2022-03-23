@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const instance = require('../../../data-base')
+const instance = require('../../data-base')
 
 const columns = {
     name: {

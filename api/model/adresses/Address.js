@@ -1,6 +1,6 @@
 const AddressTable = require('./AddressTable')
-const InvalidField = require('../../../../erros/InvalidField')
-const DataNotProvided = require('../../../../erros/DataNotProvided')
+const InvalidField = require('../../erros/InvalidField')
+const DataNotProvided = require('../../erros/DataNotProvided')
 
 
 class Address {

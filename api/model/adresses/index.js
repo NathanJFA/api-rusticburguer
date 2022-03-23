@@ -1,8 +1,8 @@
 const router = require('express').Router({ mergeParams: true })
 const AddressTable = require('./AddressTable')
 const Address = require('./Address')
-const SerealizerAddress = require('../../../../Serealizer').SerealizerAddress
-//const NotFound = require('../../../erros/NotFound')
+const SerealizerAddress = require('../../Serealizer').SerealizerAddress
+const NotFound = require('../../erros/NotFound')
 
 router.options('/', (request, response) => {
     response.set('Access-Control-Allow-Methods', 'GET, POST')

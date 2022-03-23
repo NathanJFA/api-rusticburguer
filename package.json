@@ -2,7 +2,7 @@
   "name": "api-rustic",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./api/index.js",
   "scripts": {
     "start": "nodemon ./api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,12 +13,15 @@
   "dependencies": {
     "body-parser": "^1.19.2",
     "config": "^3.3.7",
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "jsontoxml": "^1.0.1",
     "moment": "^2.29.1",
     "momment": "0.0.1",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.17.0"
+    "path": "^0.12.7",
+    "sequelize": "^6.17.0",
+    "sequelize-cli": "^6.4.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

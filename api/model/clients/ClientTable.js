@@ -1,5 +1,5 @@
 const Model = require('./TableModelClient')
-const NotFound = require('../../../erros/NotFound')
+const NotFound = require('../../erros/NotFound')
 
 module.exports = {
     list () {

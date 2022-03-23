@@ -75,6 +75,24 @@ class SerealizerSnack extends Serealizer{
         this.tagPlural = 'snacks'
     }
 }
+class SerealizerPedido extends Serealizer{
+    constructor(contentType, extraFields){
+        super()
+        this.contentType = contentType
+        this.publicFields = ['id','value','description','stateForPedido','client'].concat(extraFields || [])
+        this.tagSingular = 'pedido'
+        this.tagPlural = 'pedidos'
+    }
+}
+class SerealizerAdmin extends Serealizer{
+    constructor(contentType, extraFields){
+        super()
+        this.contentType = contentType
+        this.publicFields = ['id','name','lastname','email'].concat(extraFields || [])
+        this.tagSingular = 'admin'
+        this.tagPlural = 'admins'
+    }
+}
 class SerealizerError extends Serealizer {
     constructor (contentType, extraFields) {
         console.log("ConsoleSerealizerError---->>>" + contentType)
@@ -92,7 +110,9 @@ module.exports = {
     Serealizer: Serealizer,
     SerealizerClient: SerealizerClient,
     SerealizerAddress: SerealizerAddress,
+    SerealizerPedido: SerealizerPedido,
     SerealizerError: SerealizerError,
+    SerealizerAdmin: SerealizerAdmin,
     SerealizerSnack: SerealizerSnack,
     acceptFormats: ['application/json','application/xml']
 }

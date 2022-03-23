@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const ClientTable = require('./ClientTable')
 const Client = require('./Client')
-const SerealizerClient = require('../../../Serealizer').SerealizerClient
-const NotFound = require('../../../erros/NotFound')
+const SerealizerClient = require('../../Serealizer').SerealizerClient
+const NotFound = require('../../erros/NotFound')
 
 router.options('/', (request, response) => {
     response.set('Access-Control-Allow-Methods', 'GET, POST')
@@ -126,7 +126,10 @@ const checkClient = async (request, response, next) => {
         next(erro)
     }
 }
-const routerAddress = require('./adresses')
+const routerAddress = require('../adresses')
 router.use('/:idClient/address', checkClient, routerAddress)
+
+const routerPedido = require('../pedidos')
+router.use('/:idClient/pedidos', routerPedido)
 
 module.exports = router

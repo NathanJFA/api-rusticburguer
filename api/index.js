@@ -25,10 +25,14 @@ app.use((request, response, next) => {
     next()
 })
 
-const routerSnack = require('./routers/model/snacks')
+const routerSnack = require('./model/snacks')
 app.use('/api/snacks', routerSnack)
-const routerClient = require('./routers/model/clients')
+const routerClient = require('./model/clients')
 app.use('/api/clients', routerClient)
+const routerPedido = require('./model/pedidos')
+app.use('/api/pedidos', routerPedido)
+const routerAdmin = require('./model/admins')
+app.use('/api/admins', routerAdmin)
 
 
 //DEFININDO ROTA V2

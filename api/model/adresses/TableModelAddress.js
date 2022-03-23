@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const instance = require('../../../../data-base')
+const instance = require('../../data-base')
 
 const columns = {
     street: {
@@ -26,7 +26,7 @@ const columns = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-            model: require('../TableModelClient'),
+            model: require('../clients/TableModelClient'),
             key: 'id'
         }
     }

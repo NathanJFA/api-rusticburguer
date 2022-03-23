@@ -1,16 +1,20 @@
 const Sequelize = require('sequelize')
-const instance = require('../../../data-base')
+const instance = require('../../data-base')
 
 const columns = {
     name: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    value: {
+    lastname: {
         type: Sequelize.DOUBLE,
         allowNull: false
     },
-    description: {
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
+    password: {
         type: Sequelize.STRING,
         allowNull: false
     }
@@ -18,11 +22,10 @@ const columns = {
 
 const options = {
     freezeTableName: true,
-    tableName: 'snacks',
+    tableName: 'admins',
     timestamps: true,
     createdAt: 'createAt',
     updatedAt: 'updateAt',
-    version: 'version'
 }
 
-module.exports = instance.define('snack', columns, options)
+module.exports = instance.define('admin', columns, options)
