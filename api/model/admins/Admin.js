@@ -3,10 +3,11 @@ const InvalidField = require('../../erros/InvalidField')
 const DataNotProvided = require('../../erros/DataNotProvided')
 
 class Admin {
-    constructor({id, name, lastname, email, password, createAt, updateAt}){
+    constructor({id, name, lastname, sexo, email, password, createAt, updateAt}){
         this.id = id
         this.name = name
         this.lastname = lastname
+        this.sexo = sexo
         this.email = email
         this.password = password
         this.createAt = createAt
@@ -17,6 +18,7 @@ class Admin {
         const result = await AdminTable.insert({
             name: this.name,
             lastname: this.lastname,
+            sexo: this.sexo,
             email: this.email,
             password: this.password
         })
@@ -28,6 +30,7 @@ class Admin {
         const adminFound = await AdminTable.findById(this.id)
         this.name = adminFound.name
         this.lastname = adminFound.lastname
+        this.sexo = adminFound.sexo
         this.email = adminFound.email
         this.password = adminFound.password
         this.createAt = adminFound.createAt
@@ -36,7 +39,7 @@ class Admin {
     async update(){
         
         await AdminTable.findById(this.id)
-        const fields = ['name','lastname','email','password']
+        const fields = ['name','lastname','sexo','email','password']
         const dataForUpdate = {}
         fields.forEach((field) => {
             const value = this[field]
@@ -53,7 +56,7 @@ class Admin {
         await AdminTable.delete(this.id)
     }
     validate(){
-        const fields = ['name','sobrenome','email','password']
+        const fields = ['name','sobrenome','sexo','email','password']
         if(typeof this['name']  !== 'string'){
             throw new InvalidField('name')
         }if(typeof this['lastname']  !== 'string'){

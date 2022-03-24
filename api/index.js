@@ -25,6 +25,19 @@ app.use((request, response, next) => {
     next()
 })
 
+
+app.use((requisicao, resposta, proximo) =>{
+    resposta.set('Access-Control-Allow-Origin','*') // dominio do site ou * 
+    //fetch('http://127.0.0.1:3002/api/fornecedores').then(console.log)   ->>>>> pra acessar
+    proximo()
+    /*
+    const corpo = JSON.stringify({empresa: 'Loja de brinquedos'})
+    const cabecalhos = {'Content-Type':'application/json'}
+    fetch(url, { method: 'PUT', body: corpo, headers: cabecalhos}).then(console.log) 
+
+    */
+})
+
 const routerSnack = require('./model/snacks')
 app.use('/api/snacks', routerSnack)
 const routerClient = require('./model/clients')

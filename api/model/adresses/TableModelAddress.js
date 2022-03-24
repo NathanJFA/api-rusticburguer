@@ -18,8 +18,16 @@ const columns = {
         type: Sequelize.ENUM('PB','RN','SP','PA','PR','RS','PE','AL','AM','MG','AC','AP','BA','CE','DF','ES','GO','MA','MT','MS','PI','RR','RO','RJ','TO','SE'),
         allowNull: false
     },
+    cep:{
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     number: {
         type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    reference: {
+        type: Sequelize.STRING,
         allowNull: false
     },
     client:{

@@ -10,6 +10,10 @@ const columns = {
         type: Sequelize.DOUBLE,
         allowNull: false
     },
+    sexo: {
+        type: Sequelize.ENUM('MASCULINO','FEMININO','OUTRO'),
+        allowNull: false
+    },
     email: {
         type: Sequelize.STRING,
         allowNull: false
