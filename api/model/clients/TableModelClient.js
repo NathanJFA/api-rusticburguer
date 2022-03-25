@@ -6,8 +6,16 @@ const columns = {
         type: Sequelize.STRING(70),
         allowNull: false
     },
+    lastname: {
+        type: Sequelize.STRING(),
+        allowNull: false
+    },
     email: {
         type: Sequelize.STRING(35),
+        allowNull: false
+    },
+    sexo: {
+        type: Sequelize.ENUM('MASCULINO','FEMININO','OUTRO'),
         allowNull: false
     },
     date: {
@@ -35,4 +43,3 @@ const options = {
 
 module.exports = instance.define('client', columns, options)
 
-//PAREI NA CONEXÃO DA RELAÇÃO DO ENDEREÇO COM O CLIENTE

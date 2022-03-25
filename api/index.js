@@ -51,6 +51,7 @@ app.use('/api/admins', routerAdmin)
 //DEFININDO ROTA V2
 //----------------------------------------------------------
 const routerV2 = require('./routers/rotas.v2')
+const IncorretCredencial = require('./erros/IncorretCredencial')
 app.use('/api/v2/clients', routerV2)
 //----------------------------------------------------------
 
@@ -60,7 +61,7 @@ app.use((erro, request, response, next) => {
     let status = 500
     if(erro instanceof NotFound){
         status = 404
-    }if(erro instanceof InvalidField || erro instanceof DataNotProvided){
+    }if(erro instanceof InvalidField || erro instanceof DataNotProvided || erro instanceof IncorretCredencial){
         status = 400
     }if(erro instanceof UnsupportedValue){
         status = 406

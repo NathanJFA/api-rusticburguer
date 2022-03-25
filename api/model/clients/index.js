@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const Credencials = require('./Credencials')
 const ClientTable = require('./ClientTable')
 const Client = require('./Client')
 const SerealizerClient = require('../../Serealizer').SerealizerClient
@@ -36,6 +37,19 @@ router.post('/', async (request, response, next) => {
         )
     }
     catch(erro){
+        next(erro)
+    }
+    
+})
+router.post('/login', async(request, response, next) => {
+    try{
+        const body = request.body
+
+        const credencials = new Credencials(body)
+        const client = await credencials.login()
+        response.status(200)
+        response.send(client)
+    }catch(erro){
         next(erro)
     }
     

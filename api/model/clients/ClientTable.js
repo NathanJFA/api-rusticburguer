@@ -1,5 +1,6 @@
 const Model = require('./TableModelClient')
 const NotFound = require('../../erros/NotFound')
+const IncorretCredencial = require('../../erros/IncorretCredencial')
 
 module.exports = {
     list () {
@@ -17,6 +18,20 @@ module.exports = {
         if( !found){
             throw new NotFound()
         }
+        return found
+    },
+    async login(email, password){
+        const found = await Model.findOne({
+            where: {
+                email: email,
+                password: password
+            },
+            raw: true
+        })
+        if(!found){
+            throw new IncorretCredencial()
+        }
+        
         return found
     },
     async update(id, dataForUpdate){
