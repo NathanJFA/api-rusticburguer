@@ -6,8 +6,8 @@ const NotFound = require('./erros/NotFound')
 const InvalidField = require('./erros/InvalidField')
 const DataNotProvided = require('./erros/DataNotProvided')
 const UnsupportedValue = require('./erros/UnsupportedValue')
-const SerealizerError = require('./Serealizer').SerealizerError
-const acceptFormats = require('./Serealizer').acceptFormats   
+const SerealizerError = require('./Serealizer').SerealizerError  
+const acceptFormats = require('./Serealizer').acceptFormats
 
 app.use(bodyParser.json())
 
@@ -26,16 +26,16 @@ app.use((request, response, next) => {
 })
 
 
-app.use((requisicao, resposta, proximo) =>{
-    resposta.set('Access-Control-Allow-Origin','*') // dominio do site ou * 
-    //fetch('http://127.0.0.1:3002/api/fornecedores').then(console.log)   ->>>>> pra acessar
-    proximo()
-    /*
-    const corpo = JSON.stringify({empresa: 'Loja de brinquedos'})
-    const cabecalhos = {'Content-Type':'application/json'}
-    fetch(url, { method: 'PUT', body: corpo, headers: cabecalhos}).then(console.log) 
-
-    */
+app.use((request, response, next) =>{
+    response.set('Access-Control-Allow-Origin','*') 
+    next()
+    /**
+     * URL or *
+     * fetch('http://127.0.0.1:3002/api/fornecedores').then(console.log)   ->>>>> access
+     * const body = JSON.stringify({atribute: 'value'})
+     * fetch(url, { method: 'PUT', body: body, headers: headers}).then(console.log) 
+     * 
+     */
 })
 
 const routerSnack = require('./model/snacks')
@@ -55,7 +55,7 @@ const IncorretCredencial = require('./erros/IncorretCredencial')
 app.use('/api/v2/clients', routerV2)
 //----------------------------------------------------------
 
-app.listen(config.get('api.port'), () => console.log('A API está funcionando!'))
+app.listen(config.get('api.port'), () => console.log('the API is ready!'))  
 
 app.use((erro, request, response, next) => {
     let status = 500
@@ -70,7 +70,6 @@ app.use((erro, request, response, next) => {
         response.getHeader('Content-Type')
     )
     response.status(status)
-    console.log("Erro -> " + erro.message + " id --> " + erro.id)
     response.send(
         serealizer.serealize({
             message: erro.message,
